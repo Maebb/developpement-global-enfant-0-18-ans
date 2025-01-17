@@ -1,0 +1,509 @@
+body { 
+	background-image:url("images/background2.jpg");
+	background-size:cover;
+	font-family:"Calibri";
+	margin:0;
+}
+body.margin-right {
+	margin-right:200px;
+}
+
+h1, h2, h3 {
+	text-align:center;
+}
+
+
+table {
+	margin:auto 0;
+}
+
+tbody {
+	vertical-align:top;
+}
+
+td {
+	padding: 15px;
+}
+
+p {
+	text-align:justify;
+}
+
+img {
+	width:100%;
+	transition: 0.3s;
+}
+
+img:hover {
+	transform:scale(1.1);
+}
+
+img.margin-top {
+	margin-top:130px;
+}
+
+nav {
+	position:absolute;
+	right:0px;
+	top:15%;
+	width:190px;
+	background-color:rgba(0,0,0,0.1);
+}
+
+nav ul{
+	list-style:none;
+	margin-left:0;
+	padding-left:15px;
+}
+
+nav li {
+	padding:15px 0;
+	font-size:20px;
+}
+
+nav a {
+	text-decoration:none;
+	color:purple;
+}
+
+nav a:hover { 
+	color:red
+}
+
+.font20 {
+	font-size: 20px;
+}
+
+span.competence {
+	color: green;
+	font-weight: bold;
+}
+
+div.mi {
+	/* display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 80vh; */
+	width:50%;
+	float:left;
+	padding:30px;
+	font-size: 1.2em;
+}
+
+.main {
+	margin: 0 50px;
+	font-size: 1.2em;
+}
+
+img.no-hover:hover {
+	transform: none;
+}
+
+img.icon {
+	width: 50px;
+	float: left;
+	margin-right: 10px
+}
+
+img.tap-icon {
+	width: 30px!important;
+	height: 30px!important;
+	float: none!important;
+}
+
+.center-all {
+	vertical-align:middle;
+	text-align:center;
+}
+
+.content {
+	display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content p {
+	font-size: 1.5em;
+}
+
+
+
+/* Style the Image Used to Trigger the Modal */
+.modalImg {
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modalImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: fixed;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+
+/* Permet de nettoyer l'espace après un float */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+
+/* Style de la timeline */
+.body-wrap {
+  /*background-color: #fff;*/
+  width: 90%;
+  min-height: 500px;
+  margin: 0 auto;
+  font-size: 12px;
+}
+
+.pres-timeline {
+  font-family: roboto, helvetica, sans-serif;
+  font-size: 12px;
+  color: #4A4A4A;
+  width: 100%;
+  margin: 30px 0;
+}
+.pres-timeline > div > div {
+  padding: 1em 0;
+  box-sizing: border-box;
+}
+.pres-timeline .periods-container, .pres-timeline .cards-container {
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 100px;
+  transition: height 0.5s ease-in-out;
+  /*background-color: #FFF;*/
+}
+.periods-container:before {
+  background-image: linear-gradient(left, #FFF, rgba(248, 248, 248, 0));
+  left: 0;
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  height: 100%;
+  width: 100px;
+}
+.periods-container:after {
+  background-image: linear-gradient(right, #FFF, rgba(248, 248, 248, 0));
+  right: 0;
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  height: 100%;
+  width: 100px;
+}
+.periods-container .btn-back, .periods-container .btn-next {
+  display: inline-block;
+  width: 15%;
+  height: 100%;
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+  transition: 0.3s ease-in-out;
+}
+.periods-container .btn-back:hover, .periods-container .btn-next:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.periods-container .btn-back.hide, .periods-container .btn-next.hide {
+  display: none;
+}
+.periods-container .btn-back {
+  left: 0;
+}
+.periods-container .btn-next {
+  right: 0;
+}
+.periods-container section {
+  width: 70%;
+  height: 0;
+  position: absolute;
+  margin-left: 15%;
+  border-bottom: 5px solid #dfe3e6;
+  padding: 1.5em;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-in-out, opacity 0.2s ease, height 0.3s ease;
+  bottom: 0;
+  opacity: 0;
+  background-color: #fff;
+}
+.periods-container section.active {
+  height: auto;
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 5;
+}
+.periods-container section.active .title, .periods-container section.active p {
+  display: block;
+}
+.periods-container section.prev {
+  height: auto;
+  opacity: 0.4;
+  transform: translateX(-100%);
+  z-index: 0;
+}
+.periods-container section.prev .year {
+  text-align: right;
+}
+.periods-container section.next {
+  height: auto;
+  opacity: 0.4;
+  transform: translateX(100%);
+  z-index: 0;
+}
+.periods-container section .year {
+  font-size: 30px;
+  font-weight: 400;
+ 
+}
+.periods-container section .title {
+  color: #4A4A4A;
+  font-size: 28px;
+  font-weight: 400;
+  display: none;
+}
+.periods-container section p {
+  display: none;
+}
+
+.timeline-container {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+}
+.timeline-container:before {
+  background-image: linear-gradient(left, #FFF, rgba(248, 248, 248, 0));
+  left: 0;
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  height: 100%;
+  width: 100px;
+}
+.timeline-container:after {
+  background-image: linear-gradient(right, #FFF, rgba(248, 248, 248, 0));
+  right: 0;
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  height: 100%;
+  width: 100px;
+}
+.timeline-container .timeline {
+  position: absolute;
+  display: block;
+  height: 50px;
+  transition: left 0.3s ease-in-out;
+}
+.timeline-container .timeline ol {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #dfe3e6;
+  list-style: none;
+  padding-left: 210px;
+  padding-right: 300px;
+}
+.timeline-container .timeline ol li {
+  display: inline-block;
+  padding: 5px;
+  margin-top: -11px;
+  margin-left: 80px;
+  border-radius: 50%;
+  border: 3px solid #7f9298;
+  background-color: #FFF;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.timeline-container .timeline ol li.active {
+  box-shadow: none;
+}
+.timeline-container .timeline ol li.active:before {
+  content: "";
+  display: block;
+  height: 25px;
+  width: 1px;
+  position: absolute;
+  top: -25px;
+  transition: opacity 0.3s ease-in-out;
+}
+.timeline-container .timeline ol li.active:after {
+  content: "";
+  display: block;
+  height: 25px;
+  width: 1px;
+  position: absolute;
+  bottom: -25px;
+  transition: opacity 0.3s ease-in-out;
+}
+.timeline-container .btn-back, .timeline-container .btn-next {
+  display: inline-block;
+  position: absolute;
+  cursor: pointer;
+  margin-top: -2px;
+  z-index: 11;
+  transition: all 0.3s ease;
+}
+.timeline-container .btn-back.hide, .timeline-container .btn-next.hide {
+  display: none;
+}
+.timeline-container .btn-back:hover, .timeline-container .btn-next:hover {
+  border-color: #7f9298;
+}
+.timeline-container .btn-back {
+  left: 1em;
+}
+.timeline-container .btn-next {
+  right: 1em;
+}
+
+.cards-container:before {
+  background-image: linear-gradient(left, #FFF, rgba(248, 248, 248, 0));
+  left: 0;
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  height: 100%;
+  width: 100px;
+}
+.cards-container:after {
+  background-image: linear-gradient(right, #FFF, rgba(248, 248, 248, 0));
+  right: 0;
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  height: 100%;
+  width: 100px;
+}
+.cards-container section {
+  width: 70%;
+  position: absolute;
+  margin-left: 15%;
+  margin-bottom: 2em;
+  border: 1px solid #f5f7f6;
+  padding: 1.5em;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-in-out;
+  top: 0;
+  opacity: 0;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+.cards-container section.active {
+  height: auto;
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 5;
+}
+.cards-container section.prev {
+  height: auto;
+  opacity: 0.4;
+  transform: translateX(-105%);
+  z-index: 0;
+}
+.cards-container section.next {
+  height: auto;
+  opacity: 0.4;
+  transform: translateX(105%);
+  z-index: 0;
+}
+.cards-container section .year {
+  text-align: center;
+  font-size: 16px;
+  margin: 0;
+}
+.cards-container section .title {
+  font-weight: 400;
+}
+.cards-container section img {
+  transform: none;
+  height: 400px;
+  width: auto;
+  float: left;
+  padding: 10px;
+  text-align: center;
+}
+.cards-container section p {
+	padding: 10px;
+}
